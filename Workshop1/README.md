@@ -6,7 +6,7 @@ In this workshop you will learn how you can use [Lambda@Edge](https://docs.aws.a
 
 **Backstory**: Aliens have arrived. Humanity cannot communicate with them because we do not speak a common language. However, the aliens are curious and willing to learn the language by looking at beautiful images with short text descriptions. Let's build a website to help the aliens learn our language using simple learning cards!
 
-The workshop will demonstrate the usage of the following AWS services:
+The workshop demonstrates the usage of the following AWS services:
 * **Amazon S3**: the website's static files will be stored in an S3 bucket
 * **Amazon DynamoDB**: the dynamic data will be stored in a DynamoDB table
 * **Amazon CloudFront**: the fast and secure content delivery will be performed by a CloudFront distribution
