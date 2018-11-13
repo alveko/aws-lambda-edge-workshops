@@ -1,4 +1,4 @@
-# Supercharge your website with Lambda@Edge
+# Customizing Content Delivery with Lambda@Edge
 
 ## Overview
 
