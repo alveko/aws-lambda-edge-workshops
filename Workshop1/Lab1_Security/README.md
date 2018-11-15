@@ -35,17 +35,23 @@ The result of the scan will be unsatisfactory:
 
 Create a Lambda function that would add the security headers to all responses from the origin in the CloudFront distribution.
 
-**Note**: CloudFormation stack was created in "US West (Oregon)" and for Lambda@Edge, lambda function needs to be created in "US East (N.Virginia)" region only.
+Go to Lambda Console, select "US East (N.Virginia)" region in the top right corner.
 
-Go to Lambda Console, select "US East (N.Virginia)" region in the top right corner. Go to `Functions`, click `Create function` and click `Author from scratch`.
+Go to `Functions`, click `Create function` and click `Author from scratch`.
 
-In the `Basic information` window, specify:
-* `Name`: `ws-lambda-at-edge-add-security-headers`
-* `Runtime`: `Node.js 6.10` or `Node.js 8.10`
-* `Role`: `Choose an existing role`
-* `Existing role`: `ws-lambda-at-edge-basic-<UNIQUE_ID>` (this allows the function to push the logs to CloudWatch Logs)
+In the `Create function` page, specify:
 
-<kbd>![x](./img/01-create-function.png)</kbd>
+Field | Value
+--- | ---
+Name | ws-lambda-at-edge-add-security-headers
+Runtime | Node.js 8.10
+Role | Choose an existing role
+Existing role | ws-lambda-at-edge-basic-<UNIQUE_ID>
+
+<details><summary>Show/hide the screehshot</summary>
+  
+  <kbd>[![](./img/01-create-function.png)](#)</kbd>
+</details>
 
 Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda-at-edge-add-security-headers.js) as a blueprint.
 
