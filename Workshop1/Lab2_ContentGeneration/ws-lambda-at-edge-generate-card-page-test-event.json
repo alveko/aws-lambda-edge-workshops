@@ -1,0 +1,60 @@
+{
+  "Records": [
+    {
+      "cf": {
+        "config": {
+          "distributionDomainName": "d1xr0ai368mitn.cloudfront.net",
+          "distributionId": "E10P73FUOY6HEW",
+          "eventType": "origin-request"
+        },
+        "request": {
+          "clientIp": "2620:101:8030:74:9f2b:d246:c6e1:1d6a",
+          "headers": {
+            "user-agent": [
+              {
+                "key": "User-Agent",
+                "value": "Amazon CloudFront"
+              }
+            ],
+            "via": [
+              {
+                "key": "Via",
+                "value": "1.1 bfd7406fdd888e34dfca79886cb7c964.cloudfront.net (CloudFront)"
+              }
+            ],
+            "x-forwarded-for": [
+              {
+                "key": "X-Forwarded-For",
+                "value": "2620:101:8030:74:9f2b:d246:c6e1:1d6a"
+              }
+            ],
+            "accept-encoding": [
+              {
+                "key": "Accept-Encoding",
+                "value": "gzip"
+              }
+            ],
+            "host": [
+              {
+                "key": "Host",
+                "value": "alien-cards-be0359c0.s3.us-east-1.amazonaws.com"
+              }
+            ]
+          },
+          "method": "GET",
+          "origin": {
+            "s3": {
+              "authMethod": "origin-access-identity",
+              "customHeaders": {},
+              "domainName": "alien-cards-be0359c0.s3.us-east-1.amazonaws.com",
+              "path": "",
+              "region": "us-east-1"
+            }
+          },
+          "querystring": "",
+          "uri": "/card/da8398f4"
+        }
+      }
+    }
+  ]
+}

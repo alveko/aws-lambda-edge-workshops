@@ -14,13 +14,13 @@ The workshop demonstrates the usage of the following AWS services:
 
 ## Lab 0 - Launch the Stack
 
-To start the workshop, launch the CloudFormation stack to bootstrap the resources in the us-west-2 (Oregon) region.
+To start the workshop, launch the CloudFormation stack to bootstrap the resources in the us-east-1 (N.Virginia) region.
 
 Click the launch stack button below to kick it off, accept all default values and wait for CloudFormation to complete the creation of the stack.
 
 Region | Button
 ------------ | -------------
-us-west-2 | [![Launch stack in us-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=WsLambdaAtEdgeAlienCards&templateURL=https://s3.amazonaws.com/ws-lambda-at-edge/bootstrap/cfn-template.json)
+us-east-1 | [![Launch stack in us-east-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=WsLambdaAtEdgeAlienCards&templateURL=https://s3.amazonaws.com/ws-lambda-at-edge/bootstrap/cfn-template.json)
 
 Need more detailed instructions? Proceed to  
 [Lab 0 - Launch the stack (steps with screenshots)](./Lab0_LaunchTheStack/README.md)
