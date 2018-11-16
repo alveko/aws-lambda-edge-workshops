@@ -35,9 +35,9 @@ The result of the scan will be unsatisfactory:
 
 Create a Lambda function that would add the security headers to all responses from the origin in the CloudFront distribution.
 
-Go to Lambda Console, select "US East (N.Virginia)" region in the top right corner.
+Open [AWS Lambda Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/). Make sure the "US East (N.Virginia)" region is selected in the top right corner. Go to `Functions`, click `Create function` and click `Author from scratch`.
 
-Go to `Functions`, click `Create function` and click `Author from scratch`.
+Alternatively, just follow this link: [Create New function from scratch](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create?tab=authorFromScratch)
 
 In the `Create function` page, specify:
 
@@ -51,13 +51,14 @@ Existing role | ws-lambda-at-edge-basic-<UNIQUE_ID>
 <details><summary>Show/hide the screehshot</summary>
   
   <kbd>[![](./img/01-create-function.png)](#)</kbd>
-</details>
+</details><br/>
 
-Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda-at-edge-add-security-headers.js) as a blueprint.
+Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda-at-edge-add-security-headers.js) as a blueprint. Take a moment to familiarize yourself with the function code and what it does.
 
-Take a moment to familiarize yourself with the function code and what it does.
-
-<kbd>![x](./img/02-function-createed.png)</kbd>
+<details><summary>Show/hide the screehshot</summary>
+  
+  <kbd>[![](./img/02-function-createed.png)](#)</kbd>
+</details><br/>
 
 ### 3. Validate the function works in Lambda Console
 
