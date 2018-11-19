@@ -229,7 +229,7 @@ The trigger has been successfully updated.
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-05-deploy-to-lambda-edge-success.png)</kbd>
-</details>
+</details><br/>
 
 Wait for ~30-60 seconds for the change to propagate and for the Lambda@Edge function to get globally replicated.
 
