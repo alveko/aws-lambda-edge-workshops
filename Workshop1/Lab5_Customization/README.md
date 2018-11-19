@@ -29,7 +29,7 @@ can be rewritten to
 
 ### 1. Create a new cache behavior for the CSS files
 
-Go to [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#) and find the distribution created for this workshop.
+In [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#), select the distribution created for this workshop.
 
 Under the `Behaviors` tab, click `Create Behavior`. Choose the following settings:
 
