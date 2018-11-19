@@ -60,11 +60,17 @@ Use JavaScript code from [ws-lambda-at-edge-generate-card-page.js](./ws-lambda-a
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-03-function-created-code.png)</kbd>
-</details>
+</details><br/>
+
+Click `Save`.
 
 #### 1.2 Validate the function works in Lambda Console
 
-Click `Save`, then `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-card-page-test-event.json](./ws-lambda-at-edge-generate-card-page-test-event.json) as the test event.
+Click `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-card-page-test-event.json](./ws-lambda-at-edge-generate-card-page-test-event.json) as the test event. 
+
+Replace `distributionDomainName` field with the unique domain name of your CloudFront distribution.
+
+Click `Create`.
 
 <details><summary>Show/hide the screenshot</summary>
   
@@ -125,7 +131,7 @@ https://d123.cloudfront.net/
 
 #### 2.1 Create a cache behavior for the home page
 
-Go to [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#) and find the distribution created for this workshop.
+In [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#), select the distribution created for this workshop.
 
 Under the `Behaviors` tab, click `Create Behavior`. Choose the following settings:
 
@@ -173,11 +179,17 @@ Use JavaScript code from [ws-lambda-at-edge-generate-home-page.js](./ws-lambda-a
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-04-function-creaeted-code.png)</kbd>
-</details>
+</details><br/>
+
+Click `Save`.
 
 #### 2.3 Validate the function works in Lambda Console
 
-Click `Save`, then `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-home-page-test-event.json](./ws-lambda-at-edge-generate-card-home-test-event.json) as the test event.
+Click `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-home-page-test-event.json](./ws-lambda-at-edge-generate-home-test-event.json) as the test event.
+
+Replace `distributionDomainName` field with the unique domain name of your CloudFront distribution.
+
+Click `Create`.
 
 <details><summary>Show/hide the screenshot</summary>
   
