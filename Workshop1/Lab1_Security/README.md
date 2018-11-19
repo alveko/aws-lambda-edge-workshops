@@ -56,7 +56,7 @@ Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda
 <details><summary>Show/hide the screehshot</summary>
   
   <kbd>[![](./img/02-function-createed.png)](#)</kbd>
-</details><br/>
+</details>
 
 ### 3. Validate the function works in Lambda Console
 
@@ -75,7 +75,7 @@ Validate that the security headers are now seen in the the execution result of t
 <details><summary>Show/hide the screehshot</summary>
   
 <kbd>![x](./img/04-test-invoke-successful.png)</kbd>
-</details><br/>
+</details>
 
 ### 4. Deploy to Lambda@Edge
 
@@ -117,7 +117,7 @@ If we navigate to the CloudFront console, you will see that your distribution is
 <details><summary>Show/hide the screehshot</summary>
   
 <kbd>![x](./img/00-tbd.png)</kbd>
-</details><br/>
+</details>
 
 ### 6. Configure HTTP to HTTPs redirect
 
