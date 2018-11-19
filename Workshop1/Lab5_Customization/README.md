@@ -22,10 +22,10 @@ can be rewritten to
 ## Steps
 
 [1. Create a new cache behavior for the CSS files](#1-create-a-new-cache-behavior-for-the-css-files)  
-[2. Create a Lambda function](#1-create-a-lambda-function)  
-[3. Validate the function works in Lambda Console](#2-validate-the-function-works-in-lambda-console)  
+[2. Create a Lambda function](#2-create-a-lambda-function)  
+[3. Validate the function works in Lambda Console](#3-validate-the-function-works-in-lambda-console)  
 [4. Deploy to Lambda@Edge](#4-deploy-to-lambdaedge)  
-[5. The generated home page is now delivering CSS customized for the device type!](#7-the-generated-home-page-is-now-delivering-css-customized-for-the-device-type)
+[5. The generated home page is now delivering CSS customized for the device type!](#5-the-generated-home-page-is-now-delivering-css-customized-for-the-device-type)
 
 ### 1. Create a new cache behavior for the CSS files
 
