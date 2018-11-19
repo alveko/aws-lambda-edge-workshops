@@ -12,11 +12,12 @@ POST /api/like?id=<card_id>
 
 ## Steps
 
-[1. Create a Lambda function](#1-create-a-lambda-function)  
-[2. Validate the function works in Lambda Console](#2-validate-the-function-works-in-lambda-console)  
-[3. Publish a function version](#3-publish-a-function-version)  
-[4. Create cache behavior for the API URI](#4-create-cache-behavior-for-the-api-uri)  
-[5. The API works now!](#5-the-api-works-now)  
+[1. Create cache behavior for the API URI](#1-create-cache-behavior-for-the-api-uri)  
+[2. Create a Lambda function](#2-create-a-lambda-function)  
+[3. Validate the function works in Lambda Console](#3-validate-the-function-works-in-lambda-console)  
+[4. Deploy to Lambda@Edge](#4-deploy-to-lambdaedge)  
+[5. Wait for the change to propagate](#5-wait-for-the-change-to-propagate)  
+[6. The API works now!](#6-the-api-works-now)  
 
 ### 1. Create cache behavior for the API URI
 
