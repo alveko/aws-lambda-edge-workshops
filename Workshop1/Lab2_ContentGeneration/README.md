@@ -185,7 +185,7 @@ Click `Save`.
 
 #### 2.3 Validate the function works in Lambda Console
 
-Click `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-home-page-test-event.json](./ws-lambda-at-edge-generate-home-test-event.json) as the test event.
+Click `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-home-page-test-event.json](./ws-lambda-at-edge-generate-home-page-test-event.json) as the test event.
 
 Replace `distributionDomainName` field with the unique domain name of your CloudFront distribution.
 
