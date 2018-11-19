@@ -109,7 +109,7 @@ After that, you will see the message the trigger has been successfully created.
 <details><summary>Show/hide the screehshot</summary>
   
 <kbd>![x](./img/10-tigger-created.png)</kbd>
-</details><br/>
+</details>
 
 ### 5. Configure HTTP to HTTPs redirect
 
