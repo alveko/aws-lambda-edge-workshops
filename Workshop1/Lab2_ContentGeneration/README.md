@@ -51,14 +51,14 @@ Runtime | `Node.js 8.10`
 Role | `Choose an existing role`
 Existing role | `ws-lambda-at-edge-read-only-<UNIQUE_ID>`
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-02-create-function.png)</kbd>
 </details><br/>
 
 Use JavaScript code from [ws-lambda-at-edge-generate-card-page.js](./ws-lambda-at-edge-generate-card-page.js) as a blueprint. Take a moment to familiarize yourself with the function code and what it does. You will need to replace `FIXME` with the DynamoDB table name. You can find the resource names in the CloudFormation stack details in [AWS CloudFormation Console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active&tab=resources), or directly in [AWS DynamoDB Console](https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:).
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-03-function-created-code.png)</kbd>
 </details>
@@ -67,14 +67,14 @@ Use JavaScript code from [ws-lambda-at-edge-generate-card-page.js](./ws-lambda-a
 
 Click `Save`, then `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-card-page-test-event.json](./ws-lambda-at-edge-generate-card-page-test-event.json) as the test event.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-04-test-event.png)</kbd>
 </details><br/>
 
 Click `Test` and validate the function has returned `200` status code and the `body` field contains a meaningful HTML document.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-05-test-invoke-success.png)</kbd>
 </details>
@@ -90,14 +90,14 @@ Distribution | Select the distribution created for this workshop
 Cache beavior | `*` (the default cache bahavior matching all URI paths)
 CloudFront event | `Origin request`
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-06-deploy-to-lambda-edge.png)</kbd>
 </details><br/>
 
 The trigger has been successfully created.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-07-deploy-to-lambda-edge-success.png)</kbd>
 </details>
@@ -139,14 +139,14 @@ Minimum TTL | `0`
 Maximum TTL | `5`
 Default TTL | `5`
   
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-01-create-cache-behavior.png)</kbd>
 </details><br/>
 
 Click `Create`.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-02-cache-behaviors.png)</kbd>
 </details>
@@ -164,14 +164,14 @@ Runtime | `Node.js 8.10`
 Role | `Choose an existing role`
 Existing role | `ws-lambda-at-edge-read-only-<UNIQUE_ID>`
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-03-create-function.png)</kbd>
 </details><br/>
 
 Use JavaScript code from [ws-lambda-at-edge-generate-home-page.js](./ws-lambda-at-edge-generate-home-page.js) as a blueprint. Take a moment to familiarize yourself with the function code and what it does. You will need to replace `FIXME` with the DynamoDB table name created for this workshop.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-04-function-creaeted-code.png)</kbd>
 </details>
@@ -180,14 +180,14 @@ Use JavaScript code from [ws-lambda-at-edge-generate-home-page.js](./ws-lambda-a
 
 Click `Save`, then `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-generate-home-page-test-event.json](./ws-lambda-at-edge-generate-card-home-test-event.json) as the test event.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-05-test-event.png)</kbd>
 </details><br/>
 
 Click `Test` and validate the function has returned `200` status code and the `body` field contains a meaningful HTML document.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-06-test-invoke-success.png)</kbd>
 </details>
@@ -203,14 +203,14 @@ Distribution | Select the distribution created for this workshop
 Cache beavior | `/index.html`
 CloudFront event | `Origin request`
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-07-deploy-to-lambda-edge.png)</kbd>
 </details><br/>
 
 The trigger has been successfully created.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-08-deploy-to-lambda-edge-success.png)</kbd>
 </details>
