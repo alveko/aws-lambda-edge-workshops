@@ -121,23 +121,36 @@ If we navigate to the CloudFront console, you will see that your distribution is
 
 ### 6. Configure HTTP to HTTPs redirect
 
-Besides adding the security headers to all HTTP responses, it is also recommended to redirect HTTP traffic to the HTTPS URLs with the same URI location. This can be easily enabled in the CloudFront Console.
+Besides the security headers that we now add to all HTTP responses, it is also recommended to redirect HTTP traffic to the HTTPS URLs with the same URI location. This can be easily enabled in the CloudFront Console.
 
-Open CloudFront Console and find the distribution created for this workshop. Navigate to the `Behaviors` tab and open the default cache behavior:
-* Set `Viewer Protocol Policy` to `Redirect HTTP to HTTPs`
-* You can also see the Lambda function ARN here configured for `Origin Response` event type in the previous step. No action needed. This is just another way to configure the trigger association in CloudFront Console.
+Open [CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#) and find the distribution created for this workshop. Navigate to the `Behaviors` tab.
 
-<kbd>![x](./img/09-edit-cb.png)</kbd>
+<details><summary>Show/hide the screehshot</summary>
+  
+<kbd>![x](./img/00-tbd.png)</kbd>
+</details><br/>
+
+Select the default cache behavior and click `Edit`. Set `Viewer Protocol Policy` to `Redirect HTTP to HTTPs`.
+
+<details><summary>Show/hide the screehshot</summary>
+  
+<kbd>![x](./img/00-tbd.png)</kbd>
+</details><br/>
+
+You can also see the Lambda function ARN here configured for `Origin Response` event type in the previous step. No action needed. This is just another way to configure the trigger association in CloudFront Console.
 
 ### 7. Wait for the change to propagate
 
-After any modification of a CloudFront distribution, the change propagates globally to all CloudFront edge locations. The propagation status is indicated as `In Progress` and `Deployed` when it's complete. Usually ~30-60seconds is enough for the change to take effect, even though the status may be still `In Progress`. To be 100% certain though you can wait until the change is fully deployed, but it's not needed for the purpose of the workshop.
+After any modification of a CloudFront distribution, the change propagates globally to all CloudFront edge locations. The propagation status is indicated as `In Progress` and `Deployed` when it's complete. Usually 30-60 seconds is enough for the change to take effect, even though the status may be still `In Progress`. To be 100% certain though you can wait until the change is fully deployed, but it's not needed for the purpose of this workshop.
 
 ### 8. Invalidate CloudFront cache
 
 In order to purge any objects that may have been cached without the security headers, submit a wildcard invalidation '/*'.
 
+<details><summary>Show/hide the screehshot</summary>
+  
 <kbd>![x](./img/10-invalidate.png)</kbd>
+</details><br/>
 
 ### 9. Validate the security headers are now seen in the HTTP responses
 
