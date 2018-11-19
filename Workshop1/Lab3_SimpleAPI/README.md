@@ -41,7 +41,7 @@ Click `Create`.
 
 <details><summary>Show/hide the screenshot</summary>
   
-<kbd>![x](./img/02-cache-bejaviors.png)</kbd>
+<kbd>![x](./img/02-cache-behaviors.png)</kbd>
 </details>
 
 ### 2. Create a Lambda function
