@@ -57,18 +57,6 @@ Learn how to serve content customized for the device type of a viewer.
 
 [Lab 5 - Customization](./Lab5_Customization/README.md)
 
-## Lab 6 - Dynamic Origin Selection
-
-Learn how to dynamically change origin to serve content from origin nearer to the country of the viewer.
-
-[Lab 6 - Dynamic Origin Selection](./Lab6_DynamicOriginSelection/README.md)
-
-## Lab 7 - Dynamic Datastore Selection
-
-Learn how to access data from DynamoDB table in region nearer to the country of the viewer.
-
-[Lab 7 - Dynamic Datastore Selection](./Lab7_DynamicDatastoreSelection/README.md)
-
 ## Cleanup
 
 Clean your resources created for this workshop
