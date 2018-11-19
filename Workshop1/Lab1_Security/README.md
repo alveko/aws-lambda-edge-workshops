@@ -2,11 +2,9 @@
 
 Security always comes first.
 
-Let's check and improve our website security by configuring HTTP to HTTPs redirect and adding a number of standard security headers to enforce HTTPS connection is always used and prevent XSS.
+In modern web, many security features are implemented and enforced by the web browsers. The client-side security features are usually enabled and configured by HTTP response headers sent by a web server. However, a web server may not include all of the desired security headers in responses sent to your clients.
 
-In modern web, many security features are implemented and enforced by web-browsers. Such client side security features are usually enabled and configured by HTTP response headers sent by a web-server. However, web-servers may respond with some or all of the security headers missing. This lab shows how to add security headers to responses from an origin server configured for a CloudFront distribution. In our case, the origin is an S3 bucket.
-
-First we will scan our website by observatory.mozilla.org and see if it finds any security features missing. Next, we will fix potential security vulnerabilities by adding several security headers to all HTTP responses.
+In this lab, we will first scan our website to see if any of the security features are missine. We will then enhance the security of your CloudFront distribution using Lambda@Edge. We will add several response headers to enable web browsers security featrures. For example, the ```Strict-Transport-Security``` response header protects your viewers from certain categories of the man-in-the-middle attacks, and the ```Content-Security-Policy``` header helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks resulting from execution of malicious content in the trusted web page context. We will also configure your CloudFront distribution to require HTTPS for communication between your viewers and CloudFront. All HTTP requests received by CloudFront will be redirected a corrsponding HTTPS URL.
 
 ## Steps
 
