@@ -44,7 +44,7 @@ https://d123.cloudfront.net/card/da8398f4
 
 #### 1.1 Create a cache behavior
 
-Go to [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#) and find the distribution created for this workshop.
+In [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#), select the distribution created for this workshop.
 
 Under the `Behaviors` tab, click `Create Behavior`. Choose the following settings:
 
@@ -89,11 +89,13 @@ Take a moment to familiarize yourself with the function code and what it does.
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-04-function-code.png)</kbd>
-</details>
+</details><br/>
+
+Click `Save`.
 
 #### 1.3 Validate the function works in Lambda Console
 
-Click `Save`, then `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-redirect-test-event.json](./ws-lambda-at-edge-redirect.json) as the test event. Notice the value of the `uri` field that matches the path pattern of the just cache behavior.
+Click `Save`, then `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-redirect-test-event.json](./ws-lambda-at-edge-redirect-test-event.json) as the test event. Notice the value of the `uri` field that matches the path pattern of the just cache behavior.
 
 <details><summary>Show/hide the screenshot</summary>
   
