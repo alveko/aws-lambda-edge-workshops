@@ -11,13 +11,12 @@ In this lab, we will first scan our website to its security can be improved. We 
 [1. Scan the website for security vulnerabilities](#1-scan-the-website-for-security-vulnerabilities)  
 [2. Create a Lambda function](#2-create-a-lambda-function)  
 [3. Validate the function works in Lambda Console](#3-validate-the-function-works-in-lambda-console)  
-[4. Publish a function version](#4-publish-a-function-version)  
-[5. Create the trigger](#5-create-the-trigger)  
-[6. Configure HTTP to HTTPs redirect](#6-configure-http-to-https-redirect)  
-[7. Wait for the change to propagate](#7-wait-for-the-change-to-propagate)  
-[8. Invalidate CloudFront cache](#8-invalidate-cloudfront-cache)   
-[9. Validate the security headers are now seen in the HTTP responses](#9-validate-the-security-headers-are-now-seen-in-the-http-responses)  
-[10. Rescan the website for security](#10-rescan-the-website-for-security)  
+[4. Deploy to Lambda@Edge](#4-deploy-to-lambda@edge)  
+[5. Configure HTTP to HTTPs redirect](#5-configure-http-to-https-redirect)  
+[6. Wait for the change to propagate](#6-wait-for-the-change-to-propagate)  
+[7. Invalidate CloudFront cache](#7-invalidate-cloudfront-cache)   
+[8. Validate the security headers are now seen in the HTTP responses](#8-validate-the-security-headers-are-now-seen-in-the-http-responses)  
+[9. Rescan the website for security](#9-rescan-the-website-for-security)  
 
 ### 1. Scan the website for security vulnerabilities
 
@@ -112,7 +111,7 @@ After that, you will see the message the trigger has been successfully created.
 <kbd>![x](./img/10-tigger-created.png)</kbd>
 </details><br/>
 
-### 6. Configure HTTP to HTTPs redirect
+### 5. Configure HTTP to HTTPs redirect
 
 Besides the security headers that we now add to all HTTP responses, it is also recommended to redirect HTTP traffic to the HTTPS URLs with the same URI location. This can be easily enabled in the CloudFront Console.
 
@@ -132,7 +131,7 @@ Select the default cache behavior and click `Edit`. Set `Viewer Protocol Policy`
 
 You can also see the Lambda function ARN here configured for `Origin Response` event type in the previous step. No action needed. This is just another way to configure the trigger association in CloudFront Console.
 
-### 7. Wait for the change to propagate
+### 6. Wait for the change to propagate
 
 After any modification of a CloudFront distribution, the change propagates globally to all CloudFront edge locations. The propagation status is indicated as `In Progress` and `Deployed` when it's complete. Usually 30-60 seconds is enough for the change to take effect, even though the status may be still `In Progress`. To be 100% certain though you can wait until the change is fully deployed, but it's not needed for the purpose of this workshop.
 
@@ -141,7 +140,7 @@ After any modification of a CloudFront distribution, the change propagates globa
 <kbd>![x](./img/11-cf-distribution-in-progress.png)</kbd>
 </details>
 
-### 8. Invalidate CloudFront cache
+### 7. Invalidate CloudFront cache
 
 In order to purge any objects that may have been cached without the security headers, submit a wildcard invalidation '/*'.
 
@@ -151,7 +150,7 @@ In order to purge any objects that may have been cached without the security hea
 <kbd>![x](./img/14-invalidaiton-in-progress.png)</kbd>
 </details>
 
-### 9. Validate the security headers are now seen in the HTTP responses
+### 8. Validate the security headers are now seen in the HTTP responses
 
 You can validate that the security headers are now being added to all responses to your CloudFront distribution. You can use browser developer tools or a command line. This step can be skipped.
 
@@ -167,7 +166,7 @@ X-XSS-Protection: 1; mode=block
 ... <more headers> ...
 ```
 
-### 10. Rescan the website for security
+### 9. Rescan the website for security
 
 Rescan the distribution domain name with https://observatory.mozilla.org/ similar to step 1.
 
