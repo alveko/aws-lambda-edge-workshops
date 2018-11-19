@@ -150,7 +150,7 @@ In order to purge any objects that may have been cached without the security hea
 <details><summary>Show/hide the screehshot</summary>
   
 <kbd>![x](./img/10-invalidate.png)</kbd>
-</details><br/>
+</details>
 
 ### 9. Validate the security headers are now seen in the HTTP responses
 
