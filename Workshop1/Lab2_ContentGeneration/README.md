@@ -4,7 +4,7 @@ With Lambda@Edge, you go beyond modifying HTTP requests and response CloudFront 
 
 In this lab, you will learn how to create a Lambda@Edge function that dynamically generates HTML content that can be cached by CloudFront and returned back to your viewers.
 
-After the completion of `Lab 0 - Launch the Stack` and `Lab 1 - Security`, your CloudFront distribution just points to an S3 bucket with some static HTML content and jpeg images. The home page of the CloudFront distribution displays a static HTML page with a list of images:<br/>
+After the completion of [Lab 0 - Launch the Stack](../Lab0_LaunchTheStack/README.md) and [Lab 1 - Security](../Lab1_Security/README.md), your CloudFront distribution just points to an S3 bucket with some static HTML content and jpeg images. The home page of the CloudFront distribution displays a static HTML page with a list of images:<br/>
 https://d123.cloudfront.net
 
 **NOTE:** Here and below throughout the workshop, replace the example domain name `d123.cloudfront.net` with the unique domain name of your distribution.
