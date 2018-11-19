@@ -4,7 +4,7 @@ Security always comes first.
 
 In modern web, many security features are implemented and enforced by the web browsers. The client-side security features are usually enabled and configured by HTTP response headers sent by a web server. However, a web server may not include all of the desired security headers in responses sent to your clients.
 
-In this lab, we will first scan our website to its security can be improved. We will then enhance the security of your CloudFront distribution using Lambda@Edge. We will add several response headers to enable web browsers security featrures. For example, the ```Strict-Transport-Security``` response header protects your viewers from certain categories of the man-in-the-middle attacks, and the ```Content-Security-Policy``` header helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks resulting from execution of malicious content in the trusted web page context. We will also configure your CloudFront distribution to always require HTTPS for communication between your viewers and CloudFront. All HTTP requests received by CloudFront will be redirected a corrsponding HTTPS URL.
+In this lab, we will first scan our website to its security can be improved. We will then enhance the security of your CloudFront distribution using Lambda@Edge. We will add several response headers to enable web browsers security features. For example, the `Strict-Transport-Security` response header protects your viewers from certain categories of the man-in-the-middle attacks, and the `Content-Security-Policy` header helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks resulting from execution of malicious content in the trusted web page context. We will also configure your CloudFront distribution to always require HTTPS for communication between your viewers and CloudFront. All HTTP requests received by CloudFront will be redirected a corresponding HTTPS URL.
 
 ## Steps
 
@@ -34,8 +34,6 @@ Create a Lambda function that would add the security headers to all responses fr
 
 Open [AWS Lambda Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/). Make sure the "US East (N.Virginia)" region is selected in the top right corner. Go to `Functions`, click `Create function` and click `Author from scratch`.
 
-Alternatively, just follow this link: [Create New function from scratch](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create?tab=authorFromScratch)
-
 In the `Create function` page, specify:
 
 Field | Value
@@ -47,14 +45,14 @@ Existing role | ws-lambda-at-edge-basic-<UNIQUE_ID>
 
 <details><summary>Show/hide the screenshot</summary>
   
-  <kbd>![x](./img/03-create-function.png)</kbd>
+<kbd>![x](./img/03-create-function.png)</kbd>
 </details><br/>
 
 Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda-at-edge-add-security-headers.js) as a blueprint. Take a moment to familiarize yourself with the function code and what it does.
 
 <details><summary>Show/hide the screenshot</summary>
   
-  <kbd>![x](./img/04-create-function-code.png)</kbd>
+<kbd>![x](./img/04-create-function-code.png)</kbd>
 </details>
 
 ### 3. Validate the function works in Lambda Console
@@ -78,25 +76,25 @@ Validate that the security headers are now seen in the the execution result of t
 
 ### 4. Deploy to Lambda@Edge
 
-Deploying your funciton to Lambda@Edge implies two steps: creating a function version, and associating the function version with your CloudFront distribution by selecting an appicable Cache Behavior and an event trigger type (viewer request, viewer response, origin request or origin response).
+Deploying your function to Lambda@Edge implies two steps: creating a function version, and associating the function version with your CloudFront distribution by selecting an applicable Cache Behavior and an event trigger type (viewer request, viewer response, origin request or origin response).
 
-Publishing a function version means creating an immutable snapshot of your function. By associating an immutable function version with your CloudFront distribution, you ensure that any further changes to the code or the configuration of your Lamdba function does not affect your CloudFront traffic immedeatly, until you explicitly associate another function version with it. This way you can safely modify your function code and test it, before you associate it with your CloudFront distribution.
+Publishing a function version means creating an immutable snapshot of your function. By associating an immutable function version with your CloudFront distribution, you ensure that any further changes to the code or the configuration of your Lambda@Edge function does not affect your CloudFront traffic immediately, until you explicitly associate another function version with it. This way you can safely modify your function code and test it, before you associate it with your CloudFront distribution.
 
-You can do both of these steps separately, or alternetively you can do both of them at once by choosing `Deploy to Lambda@Edge` under `Actions`.
+You can do both of these steps separately, or alternatively you can do both of them at once by choosing `Deploy to Lambda@Edge` under `Actions`.
 
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/08-deploy-to-lambda-edge-1.png)</kbd>
 </details><br/>
 
-You will be presented with `Deploy to Lambda@Edge` page where you cofigure the properties of the CloudFront trigger for your Lambda function.
+You will be presented with `Deploy to Lambda@Edge` page where you configure the properties of the CloudFront trigger for your Lambda function.
 
 Set the trigger properties as shown below and click `Deploy`
 
 Field | Value
 --- | ---
 Distribution | Select the distribution created for this workshop
-Cache beavior | `*` (the default cache bahavior matching all URI paths)
+Cache beavior | `*` (the default cache behavior matching all URI paths)
 CloudFront event | `Origin response`
 
 <details><summary>Show/hide the screenshot</summary>
