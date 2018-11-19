@@ -173,5 +173,3 @@ Rescan the distribution domain name with https://observatory.mozilla.org/ simila
 Congratulations, now you have 100/100 score! :)
 
 <kbd>![x](./img/16-scan-summary-good-1.png)</kbd>
-
-<kbd>![x](./img/16-scan-summary-good-2.png)</kbd>
