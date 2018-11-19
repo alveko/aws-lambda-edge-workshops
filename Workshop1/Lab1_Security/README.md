@@ -55,9 +55,11 @@ Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda
 <kbd>![x](./img/04-create-function-code.png)</kbd>
 </details>
 
+Click `Save`.
+
 ### 3. Validate the function works in Lambda Console
 
-When the function is created and is ready to be associated with a CloudFront distribution, it's highly recommended to first test it to make sure it executes successfully and produces the expected outcome. This can be done using a test invoke in Lambda Console. Click `Save` and then `Test`.
+When the function is created and is ready to be associated with a CloudFront distribution, it's highly recommended to first test it to make sure it executes successfully and produces the expected outcome. This can be done using a test invoke in Lambda Console. Click `Test`.
 
 You will be prompted with a window that allows you to create a test event - an input for your function. Use the event template called `CloudFront Modify Response Header`.
 
@@ -66,8 +68,8 @@ You will be prompted with a window that allows you to create a test event - an i
 <kbd>![x](./img/06-test-event.png)</kbd>
 </details><br/>
 
-Now the function can be tested with the configured test event. Click `Test`.
-Validate that the security headers are now seen in the the execution result of the test invocation.
+Now the function can be tested with the configured test event. Click `Test`.<br/>
+Validate that the security headers are now present in the the execution result of the test invocation.
 
 <details><summary>Show/hide the screenshot</summary>
   
