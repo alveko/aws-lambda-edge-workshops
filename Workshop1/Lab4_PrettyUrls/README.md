@@ -22,18 +22,17 @@ We will cover both of these approaches with Lambda@Edge in this lab.
 ## Steps
 
 [1. Redirect response generation](#1-redirect-response-generation)  
-[1.1 Create a Lambda function](#11-create-a-lambda-function)  
-[1.2 Validate the function works in Lambda Console](#12-validate-the-function-works-in-lambda-console)  
-[1.3 Publish a function version](#13-publish-a-function-version)  
-[1.4 Create a cache behavior](#14-create-a-cache-behavior)  
+[1.1 Create a cache behavior](#11-create-a-cache-behavior)  
+[1.2 Create a Lambda function](#12-create-a-lambda-function)  
+[1.3 Validate the function works in Lambda Console](#13-validate-the-function-works-in-lambda-console)  
+[1.4 Deploy to Lambda@Edge](#14-deploy-to-lambdaedge)  
 [1.5 Redirects now work!](#15-redirects-now-work)  
 
 [2. URI rewrite](#2-uri-rewrite)  
 [2.1 Create/modify the Lambda function](#21-createmodify-the-lambda-function)  
 [2.2 Validate the function works in Lambda Console](#22-validate-the-function-works-in-lambda-console)  
-[2.3 Publish a function version](#23-publish-a-function-version)  
-[2.4 Update the trigger](#24-update-the-trigger)  
-[2.5 URI rewrite now works!](#25-uri-rewrite-now-works)  
+[2.3 Deploy to Lambda@Edge](#23-deploy-to-lambdaedge)  
+[2.4 URI rewrite now works!](#24-uri-rewrite-now-works)  
 
 ### 1. Redirect response generation
 
@@ -215,7 +214,7 @@ Click `Test` and validate the function has returned `200` response with a proper
 <kbd>![x](./img/1-06-test-invoke-success.png)</kbd>
 </details>
 
-#### 1.4 Deploy to Lambda@Edge
+#### 2.3 Deploy to Lambda@Edge
 
 Select `Deploy to Lambda@Edge` under `Actions`. Because we are updating a trigger already created in Lab 2, choose `Use existing CloudFront trigger on this function`. Click `Deploy`.
 
@@ -233,7 +232,7 @@ The trigger has been successfully updated.
 
 Wait for ~30-60 seconds for the change to propagate and for the Lambda@Edge function to get globally replicated.
 
-#### 2.5 URI rewrite now works!
+#### 2.4 URI rewrite now works!
 
 Now both URLs show exactly the same content.
 
