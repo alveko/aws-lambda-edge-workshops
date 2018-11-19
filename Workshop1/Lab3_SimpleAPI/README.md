@@ -85,7 +85,6 @@ Click `Test` and validate the function has returned `200` status code and the `b
 <kbd>![x](./img/06-test-invoke-success.png)</kbd>
 </details>
 
-
 ### 4. Deploy to Lambda@Edge
 
 Select `Deploy to Lambda@Edge` under `Actions`.
