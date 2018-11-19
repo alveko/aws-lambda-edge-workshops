@@ -20,7 +20,7 @@ We will generate the content in Lambda@Edge functions triggered by origin-reques
 [1. Content generation for the card details page](#1-content-generation-for-the-card-details-page)  
 [1.1 Create a Lambda function](#11-create-a-lambda-function)  
 [1.2 Validate the function works in Lambda Console](#12-validate-the-function-works-in-lambda-console)  
-[1.3 Deploy to Lambda@Edge](#13-deploy-lambdaedge)  
+[1.3 Deploy to Lambda@Edge](#13-deploy-to-lambdaedge)  
 [1.4 Wait for the change to propagate](#14-wait-for-the-change-to-propagate)  
 [1.5 The generated card details page is now served by CloudFront](#15-the-generated-card-details-page-is-now-served-by-cloudfront)  
 
@@ -28,7 +28,7 @@ We will generate the content in Lambda@Edge functions triggered by origin-reques
 [2.1 Create a cache behavior for the home page](#21-create-a-cache-behavior-for-the-home-page)  
 [2.2 Create a Lambda function](#22-create-a-lambda-function)  
 [2.3 Validate the function works in Lambda Console](#23-validate-the-function-works-in-lambda-console)  
-[2.4 Deploy to Lambda@Edge](#24-deploy-lambdaedge)  
+[2.4 Deploy to Lambda@Edge](#24-deploy-to-lambdaedge)  
 [2.5 Wait for the change to propagate](#25-wait-for-the-change-to-propagate)  
 [2.6 The generated home page is now served by CloudFront!](#26-the-generated-home-page-is-now-served-by-cloudfront)  
 
