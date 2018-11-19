@@ -130,7 +130,7 @@ The trigger has been successfully created.
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/1-08-deploy-to-lambda-edge-success.png)</kbd>
-</details>
+</details></br>
 
 Wait for ~30-60 seconds for the change to propagate and for the Lambda@Edge function to get globally replicated.
 
@@ -171,27 +171,29 @@ internally within Lambda@Edge so that it's not even visible in the viewer web br
 
 Assuming [Lab 2 - Content Generation](../Lab2_ContentGeneration/README.md) has been completed, you already have Lambda@Edge function triggered for the origin-request event in the default cache behavior. You now need to rewrite the URI at the beginning of this function before any further processing.
 
-This can be achieved with the code snippet below. Paste it at the beginning of the handler defined in the function `ws-lambda-at-edge-generate-card-page` created in Lab 2.
+This can be achieved with the code snippet below. Paste it at the beginning of the handler defined in the function `ws-lambda-at-edge-generate-card-page` ([link to AWS Lambda Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/ws-lambda-at-edge-generate-card-page)) created in Lab 2.
 
 ```
-    const redirects = {
-        '/music':    '/card/bcbd2481',
-        '/tree':     '/card/da8398f4',
-        '/food':     '/card/e51c848c',
-        '/computer': '/card/fe2f80a7',
-        '/cat':      '/card/k9b430fc',
-        '/beer':     '/card/vc7efa69',
-    };
+const redirects = {
+    '/music':    '/card/bcbd2481',
+    '/tree':     '/card/da8398f4',
+    '/food':     '/card/e51c848c',
+    '/computer': '/card/fe2f80a7',
+    '/cat':      '/card/k9b430fc',
+    '/beer':     '/card/vc7efa69',
+};
 
-    if (request.uri in redirects) {
-        request.uri = redirects[request.uri];
-    }
+if (request.uri in redirects) {
+    request.uri = redirects[request.uri];
+}
 ```
 
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-01-modify-card-generation.png)</kbd>
-</details>
+</details><br/>
+
+Click `Save`.
 
 #### 2.2 Validate the function works in Lambda Console
 
@@ -202,14 +204,14 @@ Update the test event - click `Configure test events` inside the dropdown list o
 <kbd>![x](./img/2-02-test-event-1.png)</kbd>
 </details><br/>
 
-Change the `uri` field value to `/tree`.
+Change the `uri` field value to `"/tree"`. Click `Save`.
 
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/2-02-test-event-2.png)</kbd>
 </details><br/>
 
-Click `Test` and validate the function has returned `200` response with a proper HTML in the body field.
+Click `Test` and validate the function has returned `200` response with a proper HTML for the tree card in the body field.
 
 <details><summary>Show/hide the screenshot</summary>
   
@@ -240,3 +242,5 @@ Now both URLs show exactly the same content.
 
 * https://d123.cloudfront.net/tree
 * https://d123.cloudfront.net/card/da8398f4  
+
+<kbd>![x](./img/2-06-pretty-uri.png)</kbd>
