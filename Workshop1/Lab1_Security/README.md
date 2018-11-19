@@ -142,7 +142,7 @@ After any modification of a CloudFront distribution, the change propagates globa
 
 ### 7. Invalidate CloudFront cache
 
-In order to purge any objects that may have been cached without the security headers, submit a wildcard invalidation '/*'.
+In order to purge any objects that may have been cached without the security headers, submit a wildcard invalidation `/*`.
 
 <details><summary>Show/hide the screenshot</summary>
   
