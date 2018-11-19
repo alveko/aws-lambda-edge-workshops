@@ -4,7 +4,7 @@ Security always comes first.
 
 In modern web, many security features are implemented and enforced by the web browsers. The client-side security features are usually enabled and configured by HTTP response headers sent by a web server. However, a web server may not include all of the desired security headers in responses sent to your clients.
 
-In this lab, we will first scan our website to see its security score. We will enhance the security of your CloudFront distribution using Lambda@Edge. We will add several response headers to enable web browsers security featrures. For example, the ```Strict-Transport-Security``` response header protects your viewers from certain categories of the man-in-the-middle attacks, and the ```Content-Security-Policy``` header helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks resulting from execution of malicious content in the trusted web page context. We will also configure your CloudFront distribution to always require HTTPS for communication between your viewers and CloudFront. All HTTP requests received by CloudFront will be redirected a corrsponding HTTPS URL.
+In this lab, we will first scan our website to its security can be improved. We will then enhance the security of your CloudFront distribution using Lambda@Edge. We will add several response headers to enable web browsers security featrures. For example, the ```Strict-Transport-Security``` response header protects your viewers from certain categories of the man-in-the-middle attacks, and the ```Content-Security-Policy``` header helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks resulting from execution of malicious content in the trusted web page context. We will also configure your CloudFront distribution to always require HTTPS for communication between your viewers and CloudFront. All HTTP requests received by CloudFront will be redirected a corrsponding HTTPS URL.
 
 ## Steps
 
@@ -64,48 +64,60 @@ When the function is created and is ready to be associated with a CloudFront dis
 
 You will be prompted with a window that allows you to create a test event - an input for your function. Use the event template called `CloudFront Modify Response Header`.
 
+<details><summary>Show/hide the screehshot</summary>
+  
 <kbd>![x](./img/03-configure-test-event.png)</kbd>
+</details><br/>
 
 Now the function can be tested with the configured test event. Click `Test`.
 Validate that the security headers are now seen in the the execution result of the test invocation.
 
+<details><summary>Show/hide the screehshot</summary>
+  
 <kbd>![x](./img/04-test-invoke-successful.png)</kbd>
+</details><br/>
 
-### 4. Publish a function version
+### 4. Deploy to Lambda@Edge
 
-Before a Lambda function can be associated with and triggered by a CloudFront distribution, you need to "publish" it to get a function version ARN. This "freezes" the function code and configuration so that you can further modify the function while CloudFront still uses the immutable function version.
+Deploying your funciton to Lambda@Edge implies two steps: creating a function version, and associating the function version with your CloudFront distribution by selecting an appicable Cache Behavior and an event trigger type (viewer request, viewer response, origin request or origin response).
 
-Choose `Publish new version` under `Actions`, specify an optional description of a function version and click `Publish`.
+Publishing a function version means creating an immutable snapshot of your function. By associating an immutable function version with your CloudFront distribution, you ensure that any further changes to the code or the configuration of your Lamdba function does not affect your CloudFront traffic immedeatly, until you explicitly associate another function version with it. This way you can safely modify your function code and test it, before you associate it with your CloudFront distribution.
 
-<kbd>![x](./img/05-publish-new-version.png)</kbd>
+You can do both of these steps separately, or alternetively you can do both of them at once by choosing `Deploy to Lambda@Edge` under `Actions`.
 
-Now you have a published function version ARN.
+<details><summary>Show/hide the screehshot</summary>
+  
+<kbd>![x](./img/00-tbd.png)</kbd>
+</details><br/>
 
-<kbd>![x](./img/06-new-version-published.png)</kbd>
+You will be presented with `Deploy to Lambda@Edge` page where you cofigure the properties of the CloudFront trigger for your Lambda function.
 
-### 5. Create the trigger
+Set the trigger properties as shown below and click `Deploy`
 
-The next step is to configure a CloudFront distribution to trigger the Lambda function execution on one of the four event types. This can be done in both Lambda or CloudFront Consoles.
+Field | Value
+--- | ---
+Distribution | Select the distribution created for this workshop
+Cache beavior | `*` (the default cache bahavior matching all URI paths)
+CloudFront event | `Origin response`
 
-While we are at the Lambda Console, under `Configuration` select `CloudFront` from the dropdown list of AWS services, you will be presented with a `Configure triggers`. 
+<details><summary>Show/hide the screehshot</summary>
+  
+<kbd>![x](./img/00-tbd.png)</kbd>
+</details><br/>
 
-<kbd>![x](./img/07-add-trigger-0.png)</kbd>
+After that, you will see the message the trigger has been successfully created.
 
-Set the new trigger properties as follows:
+<details><summary>Show/hide the screehshot</summary>
+  
+<kbd>![x](./img/00-tbd.png)</kbd>
+</details><br/>
 
-* `Distribution ID`: find the CloudFront distribution created for this workshop  
-* `Cache Behavior`: choose the default cache behavior, that is currently the only behavior in the distribution that matches all URI paths with the `*` wildcard.  
-* `CloudFront Event`: choose `Origin Response` event type to trigger the function. We want to add the security headers every time we receive a response from the origin so that the modified response would be cached together with the added security headers in the CloudFront cache.
-* Confirm the global replication of the function by clicking `Enable trigger and replicate`.
-* Click `Add` and then `Save`.
+If we navigate to the CloudFront console, you will see that your distribution is now `InProgress` deploying the change world-wide.
 
-<kbd>![x](./img/07-add-trigger-1.png)</kbd>
-
-<kbd>![x](./img/07-add-trigger-2.png)</kbd>
-
-After the trigger has been created, you will see it in the list of triggers of the function version.
-
-<kbd>![x](./img/08-trigger-created.png)</kbd>
+<details><summary>Show/hide the screehshot</summary>
+  
+<kbd>![x](./img/00-tbd.png)</kbd>
+</details><br/>
 
 ### 6. Configure HTTP to HTTPs redirect
 
