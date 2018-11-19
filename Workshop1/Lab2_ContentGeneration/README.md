@@ -20,22 +20,21 @@ We will generate the content in Lambda@Edge functions triggered by origin-reques
 [1. Content generation for the card details page](#1-content-generation-for-the-card-details-page)  
 [1.1 Create a Lambda function](#11-create-a-lambda-function)  
 [1.2 Validate the function works in Lambda Console](#12-validate-the-function-works-in-lambda-console)  
-[1.3 Publish a function version](#13-publish-a-function-version)  
-[1.4 Create the trigger](#14-create-the-trigger)  
-[1.5 Wait for the change to propagate](#15-wait-for-the-change-to-propagate)  
-[1.6 The generated card details page is now served by CloudFront](#16-the-generated-card-details-page-is-now-served-by-cloudfront)  
+[1.3 Deploy to Lambda@Edge](#13-deploy-lambdaedge)  
+[1.4 Wait for the change to propagate](#14-wait-for-the-change-to-propagate)  
+[1.5 The generated card details page is now served by CloudFront](#15-the-generated-card-details-page-is-now-served-by-cloudfront)  
 
 [2. Content generation for the home page](#2-content-generation-for-the-home-page)  
-[2.1 Create a lambda function](#21-create-a-lambda-function)  
-[2.2 Validate the function works in Lambda Console](#22-validate-the-function-works-in-lambda-console)  
-[2.3 Publish a function version](#23-publish-a-function-version)  
-[2.4 Create a cache behavior for the home page](#24-create-a-cache-behavior-for-the-home-page)  
+[2.1 Create a cache behavior for the home page](#21-create-a-cache-behavior-for-the-home-page)  
+[2.2 Create a Lambda function](#22-create-a-lambda-function)  
+[2.3 Validate the function works in Lambda Console](#23-validate-the-function-works-in-lambda-console)  
+[2.4 Deploy to Lambda@Edge](#24-deploy-lambdaedge)  
 [2.5 Wait for the change to propagate](#25-wait-for-the-change-to-propagate)  
-[2.6 The generated home page is now served by CloudFront!](#27-the-generated-home-page-is-now-served-by-cloudfront)  
+[2.6 The generated home page is now served by CloudFront!](#26-the-generated-home-page-is-now-served-by-cloudfront)  
 
 ### 1. Content generation for the card details page
 
-Let's create a Lambda@Edge function that generates HTML for the card details page, such as<br/>
+Let's create a Lambda@Edge function that generates HTML for the card details page, such as
 https://d123.cloudfront.net/card/da8398f4
 
 #### 1.1 Create a Lambda function
@@ -87,7 +86,7 @@ Configure CloudFront trigger properties as shown below, acknowledge replication 
 Field | Value
 --- | ---
 Distribution | Select the distribution created for this workshop
-Cache beavior | `*` (the default cache bahavior matching all URI paths)
+Cache behavior | `*` (the default cache behavior matching all URI paths)
 CloudFront event | `Origin request`
 
 <details><summary>Show/hide the screenshot</summary>
@@ -108,7 +107,7 @@ Wait for 30-60 seconds for the change to propagate and for the Lambda@Edge funct
 
 After any modification of a CloudFront distribution, the change propagates globally to all CloudFront edge locations. The propagation status is indicated as `In Progress` and `Deployed` when it's complete. Usually 30-60 seconds is enough for the change to take effect, even though the status may be still `In Progress`. To be 100% certain though you can wait until the change is fully deployed, but it's not needed for the purpose of the workshop. You can monitor the status of your distribution in [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#).
 
-#### 1.6 The generated card details page is now served by CloudFront
+#### 1.5 The generated card details page is now served by CloudFront
 
 Go to the card details page:
 https://d123.cloudfront.net/card/da8398f4  
@@ -119,7 +118,7 @@ You should be seeing a page like this:
 
 ### 2. Content generation for the home page
 
-At the moment, the home page of our distribution displays a simple static HTML file. Let's make it more dynamic by generating it on the fly with Lambda@Edge so that the cards with the highest rating scrore appear on the top and also a short card description pop ups over the image when a mouse pointer is hovering over it.
+At the moment, the home page of our distribution displays a simple static HTML file. Let's make it more dynamic by generating it on the fly with Lambda@Edge so that the cards with the highest rating score appear on the top and also a short card description pop ups over the image when a mouse pointer is hovering over it.
 
 The home page is available at:
 https://d123.cloudfront.net/
@@ -192,7 +191,7 @@ Click `Test` and validate the function has returned `200` status code and the `b
 <kbd>![x](./img/2-06-test-invoke-success.png)</kbd>
 </details>
 
-#### 2.3 Deploy to Lambda@Edge
+#### 2.4 Deploy to Lambda@Edge
 
 Select `Deploy to Lambda@Edge` under `Actions`.
 Configure CloudFront trigger properties as shown below, acknowledge replication and click `Deploy`.
@@ -215,11 +214,11 @@ The trigger has been successfully created.
 <kbd>![x](./img/2-08-deploy-to-lambda-edge-success.png)</kbd>
 </details>
 
-#### 2.4 Wait for the change to propagate
+#### 2.5 Wait for the change to propagate
 
 Wait for 30-60 seconds for the change to propagate and for the Lambda@Edge function to get globally replicated.
 
-#### 2.5 The generated home page is now served by CloudFront!
+#### 2.6 The generated home page is now served by CloudFront!
 
 Go to the home page:  
 https://d123.cloudfront.net/  
