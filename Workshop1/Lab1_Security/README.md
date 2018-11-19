@@ -27,7 +27,7 @@ Go to https://observatory.mozilla.org/ and scan the CloudFront distribution doma
 
 The result of the scan will be unsatisfactory:
 
-<kbd>![x](./img/00-scan-bad-security.png)</kbd>
+<kbd>![x](./img/02-scan-summary-bad.png)</kbd>
 
 ### 2. Create a Lambda function
 
@@ -48,14 +48,14 @@ Existing role | ws-lambda-at-edge-basic-<UNIQUE_ID>
 
 <details><summary>Show/hide the screehshot</summary>
   
-  <kbd>[![](./img/01-create-function.png)](#)</kbd>
+  <kbd>![x](./img/03-create-function.png)</kbd>
 </details><br/>
 
 Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda-at-edge-add-security-headers.js) as a blueprint. Take a moment to familiarize yourself with the function code and what it does.
 
 <details><summary>Show/hide the screehshot</summary>
   
-  <kbd>[![](./img/02-function-createed.png)](#)</kbd>
+  <kbd>![x](./img/04-create-function-code.png)</kbd>
 </details>
 
 ### 3. Validate the function works in Lambda Console
@@ -66,7 +66,7 @@ You will be prompted with a window that allows you to create a test event - an i
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/03-configure-test-event.png)</kbd>
+<kbd>![x](./img/06-test-event.png)</kbd>
 </details><br/>
 
 Now the function can be tested with the configured test event. Click `Test`.
@@ -74,7 +74,7 @@ Validate that the security headers are now seen in the the execution result of t
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/04-test-invoke-successful.png)</kbd>
+<kbd>![x](./img/07-execution-succeeded.png)</kbd>
 </details>
 
 ### 4. Deploy to Lambda@Edge
@@ -87,7 +87,7 @@ You can do both of these steps separately, or alternetively you can do both of t
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/00-tbd.png)</kbd>
+<kbd>![x](./img/08-deploy-to-lambda-edge-1.png)</kbd>
 </details><br/>
 
 You will be presented with `Deploy to Lambda@Edge` page where you cofigure the properties of the CloudFront trigger for your Lambda function.
@@ -102,39 +102,32 @@ CloudFront event | `Origin response`
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/00-tbd.png)</kbd>
+<kbd>![x](./img/09-deploy-to-lambda-edge-2.png)</kbd>
 </details><br/>
 
 After that, you will see the message the trigger has been successfully created.
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/00-tbd.png)</kbd>
+<kbd>![x](./img/10-tigger-created.png)</kbd>
 </details><br/>
-
-If we navigate to the CloudFront console, you will see that your distribution is now `InProgress` deploying the change world-wide.
-
-<details><summary>Show/hide the screehshot</summary>
-  
-<kbd>![x](./img/00-tbd.png)</kbd>
-</details>
 
 ### 6. Configure HTTP to HTTPs redirect
 
 Besides the security headers that we now add to all HTTP responses, it is also recommended to redirect HTTP traffic to the HTTPS URLs with the same URI location. This can be easily enabled in the CloudFront Console.
 
-Open [CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#) and find the distribution created for this workshop. Navigate to the `Behaviors` tab.
+Open [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#) and find the distribution created for this workshop. Navigate to the `Behaviors` tab.
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/00-tbd.png)</kbd>
+<kbd>![x](./img/12-edit-cache-behavior-1.png)</kbd>
 </details><br/>
 
 Select the default cache behavior and click `Edit`. Set `Viewer Protocol Policy` to `Redirect HTTP to HTTPs`.
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/00-tbd.png)</kbd>
+<kbd>![x](./img/12-edit-cache-behavior-2.png)</kbd>
 </details><br/>
 
 You can also see the Lambda function ARN here configured for `Origin Response` event type in the previous step. No action needed. This is just another way to configure the trigger association in CloudFront Console.
@@ -143,13 +136,19 @@ You can also see the Lambda function ARN here configured for `Origin Response` e
 
 After any modification of a CloudFront distribution, the change propagates globally to all CloudFront edge locations. The propagation status is indicated as `In Progress` and `Deployed` when it's complete. Usually 30-60 seconds is enough for the change to take effect, even though the status may be still `In Progress`. To be 100% certain though you can wait until the change is fully deployed, but it's not needed for the purpose of this workshop.
 
+<details><summary>Show/hide the screehshot</summary>
+  
+<kbd>![x](./img/11-cf-distribution-in-progress.png)</kbd>
+</details>
+
 ### 8. Invalidate CloudFront cache
 
 In order to purge any objects that may have been cached without the security headers, submit a wildcard invalidation '/*'.
 
 <details><summary>Show/hide the screehshot</summary>
   
-<kbd>![x](./img/10-invalidate.png)</kbd>
+<kbd>![x](./img/13-create-invalidation.png)</kbd>
+<kbd>![x](./img/14-invalidaiton-in-progress.png)</kbd>
 </details>
 
 ### 9. Validate the security headers are now seen in the HTTP responses
@@ -174,6 +173,6 @@ Rescan the distribution domain name with https://observatory.mozilla.org/ simila
 
 Congratulations, now you have 100/100 score! :)
 
-<kbd>![x](./img/11-scan-security-good-1.png)</kbd>
+<kbd>![x](./img/16-scan-summary-good-1.png)</kbd>
 
-<kbd>![x](./img/12-scan-security-goog-2.png)</kbd>
+<kbd>![x](./img/16-scan-summary-good-2.png)</kbd>
