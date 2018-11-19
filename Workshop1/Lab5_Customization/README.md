@@ -133,5 +133,5 @@ https://d123.cloudfront.net/
 
 You should be seeing a page like this:
 
-<kbd>![x](./img/10-mobile-view.png)</kbd>
+<kbd>![x](./img/10-mobile-view.jpg)</kbd>
 
