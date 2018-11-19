@@ -45,14 +45,14 @@ Runtime | Node.js 8.10
 Role | Choose an existing role
 Existing role | ws-lambda-at-edge-basic-<UNIQUE_ID>
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
   <kbd>![x](./img/03-create-function.png)</kbd>
 </details><br/>
 
 Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda-at-edge-add-security-headers.js) as a blueprint. Take a moment to familiarize yourself with the function code and what it does.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
   <kbd>![x](./img/04-create-function-code.png)</kbd>
 </details>
@@ -63,7 +63,7 @@ When the function is created and is ready to be associated with a CloudFront dis
 
 You will be prompted with a window that allows you to create a test event - an input for your function. Use the event template called `CloudFront Modify Response Header`.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/06-test-event.png)</kbd>
 </details><br/>
@@ -71,7 +71,7 @@ You will be prompted with a window that allows you to create a test event - an i
 Now the function can be tested with the configured test event. Click `Test`.
 Validate that the security headers are now seen in the the execution result of the test invocation.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/07-execution-succeeded.png)</kbd>
 </details>
@@ -84,7 +84,7 @@ Publishing a function version means creating an immutable snapshot of your funct
 
 You can do both of these steps separately, or alternetively you can do both of them at once by choosing `Deploy to Lambda@Edge` under `Actions`.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/08-deploy-to-lambda-edge-1.png)</kbd>
 </details><br/>
@@ -99,14 +99,14 @@ Distribution | Select the distribution created for this workshop
 Cache beavior | `*` (the default cache bahavior matching all URI paths)
 CloudFront event | `Origin response`
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/09-deploy-to-lambda-edge-2.png)</kbd>
 </details><br/>
 
 After that, you will see the message the trigger has been successfully created.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/10-tigger-created.png)</kbd>
 </details>
@@ -117,14 +117,14 @@ Besides the security headers that we now add to all HTTP responses, it is also r
 
 Open [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/home?region=us-east-1#) and find the distribution created for this workshop. Navigate to the `Behaviors` tab.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/12-edit-cache-behavior-1.png)</kbd>
 </details><br/>
 
 Select the default cache behavior and click `Edit`. Set `Viewer Protocol Policy` to `Redirect HTTP to HTTPs`.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/12-edit-cache-behavior-2.png)</kbd>
 </details><br/>
@@ -135,7 +135,7 @@ You can also see the Lambda function ARN here configured for `Origin Response` e
 
 After any modification of a CloudFront distribution, the change propagates globally to all CloudFront edge locations. The propagation status is indicated as `In Progress` and `Deployed` when it's complete. Usually 30-60 seconds is enough for the change to take effect, even though the status may be still `In Progress`. To be 100% certain though you can wait until the change is fully deployed, but it's not needed for the purpose of this workshop.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/11-cf-distribution-in-progress.png)</kbd>
 </details>
@@ -144,7 +144,7 @@ After any modification of a CloudFront distribution, the change propagates globa
 
 In order to purge any objects that may have been cached without the security headers, submit a wildcard invalidation '/*'.
 
-<details><summary>Show/hide the screehshot</summary>
+<details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/13-create-invalidation.png)</kbd>
 <kbd>![x](./img/14-invalidaiton-in-progress.png)</kbd>
