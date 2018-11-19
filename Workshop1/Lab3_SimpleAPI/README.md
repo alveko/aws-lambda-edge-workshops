@@ -67,11 +67,13 @@ Use JavaScript code from [ws-lambda-at-edge-api-like.js](./ws-lambda-at-edge-api
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/04-function-code.png)</kbd>
-</details>
+</details><br/>
+
+Click `Save`.
 
 ### 3. Validate the function works in Lambda Console
 
-Click `Save`, then `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-api-like-test-event.json](./ws-lambda-at-edge-api-like-test-event.json) as the test event. Notice the values of `method`, `uri` and `querystring` fields.
+Click `Test`. Configure the test event. Use JSON object from [ws-lambda-at-edge-api-like-test-event.json](./ws-lambda-at-edge-api-like-test-event.json) as the test event. Notice the values of `method`, `uri` and `querystring` fields. Click `Create`.
 
 <details><summary>Show/hide the screenshot</summary>
   
@@ -128,7 +130,7 @@ curl -X POST https://d123.cloudfront.net/api/like?id=da8398f4
 }
 ```
 
-Or simply go to https://d123.cloudfront.net/card/da8398f4 in your web browser and click "+1"
+Or simply go to https://d123.cloudfront.net/card/k9b430fc in your web browser and click "+1"
 
 <kbd>![x](./img/09-api-works-1.png)</kbd>
 
