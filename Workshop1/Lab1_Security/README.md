@@ -53,7 +53,7 @@ Use JavaScript code from [ws-lambda-at-edge-add-security-headers.js](./ws-lambda
 <details><summary>Show/hide the screenshot</summary>
   
 <kbd>![x](./img/04-create-function-code.png)</kbd>
-</details>
+</details></br>
 
 Click `Save`.
 
