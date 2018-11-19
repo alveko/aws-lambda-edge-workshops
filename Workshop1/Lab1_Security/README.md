@@ -11,7 +11,7 @@ In this lab, we will first scan our website to its security can be improved. We 
 [1. Scan the website for security vulnerabilities](#1-scan-the-website-for-security-vulnerabilities)  
 [2. Create a Lambda function](#2-create-a-lambda-function)  
 [3. Validate the function works in Lambda Console](#3-validate-the-function-works-in-lambda-console)  
-[4. Deploy to Lambda@Edge](#4-deploy-to-lambda@edge)  
+[4. Deploy to Lambda@Edge](#4-deploy-to-lambdaedge)  
 [5. Configure HTTP to HTTPs redirect](#5-configure-http-to-https-redirect)  
 [6. Wait for the change to propagate](#6-wait-for-the-change-to-propagate)  
 [7. Invalidate CloudFront cache](#7-invalidate-cloudfront-cache)   
