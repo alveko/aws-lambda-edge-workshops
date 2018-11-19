@@ -3,8 +3,8 @@
     {
       "cf": {
         "config": {
-          "distributionDomainName": "d1xr0ai368mitn.cloudfront.net",
-          "distributionId": "E10P73FUOY6HEW",
+          "distributionDomainName": "d123.cloudfront.net",
+          "distributionId": "E123EXAMPLE",
           "eventType": "origin-request"
         },
         "request": {
@@ -16,24 +16,6 @@
                 "value": "Amazon CloudFront"
               }
             ],
-            "via": [
-              {
-                "key": "Via",
-                "value": "1.1 bfd7406fdd888e34dfca79886cb7c964.cloudfront.net (CloudFront)"
-              }
-            ],
-            "x-forwarded-for": [
-              {
-                "key": "X-Forwarded-For",
-                "value": "2620:101:8030:74:9f2b:d246:c6e1:1d6a"
-              }
-            ],
-            "accept-encoding": [
-              {
-                "key": "Accept-Encoding",
-                "value": "gzip"
-              }
-            ],
             "host": [
               {
                 "key": "Host",
@@ -42,17 +24,8 @@
             ]
           },
           "method": "GET",
-          "origin": {
-            "s3": {
-              "authMethod": "origin-access-identity",
-              "customHeaders": {},
-              "domainName": "alien-cards-be0359c0.s3.us-east-1.amazonaws.com",
-              "path": "",
-              "region": "us-east-1"
-            }
-          },
-          "querystring": "",
-          "uri": "/index.html"
+          "uri": "/index.html",
+          "querystring": ""
         }
       }
     }
