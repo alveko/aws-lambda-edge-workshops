@@ -4,15 +4,14 @@ With Lambda@Edge, you go beyond modifying HTTP requests and response CloudFront 
 
 In this lab, you will learn how to create a Lambda@Edge function that dynamically generates HTML content that can be cached by CloudFront and returned back to your viewers.
 
-After the completion of [Lab 0 - Launch the Stack](../Lab0_LaunchTheStack/README.md) and [Lab 1 - Security](../Lab1_Security/README.md), your CloudFront distribution just points to an S3 bucket with some static HTML content and jpeg images. The home page of the CloudFront distribution displays a static HTML page with a list of images:<br/>
-https://d123.cloudfront.net
+After the completion of [Lab 0 - Launch the Stack](../Lab0_LaunchTheStack/README.md) and [Lab 1 - Security](../Lab1_Security/README.md), your CloudFront distribution just points to an S3 bucket with some static HTML content and jpeg images.
+
+We will create two Lambda@Edge functions:
+* The first function will generate a simple HTML page with card details which will be available at the URL like this:
+https://d123.cloudfront.net/card/da8398f4 (currently, it shows `404 Not Found` from S3)
+* The second function will generate a new dynamic home page, available at https://d123.cloudfront.net. The home page will show details about each of the displayed cards - description and the current rating score. It will also sort the cards so that the most popular ones are displayed at the top.
 
 **NOTE:** Here and below throughout the workshop, replace the example domain name `d123.cloudfront.net` with the unique domain name of your distribution.
-
-In this lab, we will create two Lambda@Edge functions:
-* The first function will generate a simple HTML page with card details which will be available at the URL like this:<br/>
-https://d123.cloudfront.net/card/da8398f4  (currently, it shows `404 Not Found` from S3)
-* The second function will generate a new dynamic home page showing details about each of the displayed cards - description and the current rating score. It will also sort the cards so that the most popular ones are displayed at the top.
 
 We will generate the content in Lambda@Edge functions triggered by origin-request event so that the generated HTML files can be cached by CloudFront. Even if the TTL is just a few seconds, it will still absorb traffic spikes and lower the number of function executions.
 
